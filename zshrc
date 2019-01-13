@@ -1,24 +1,24 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/izpanda/.oh-my-zsh"
+export ZSH="/home/izpanda/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-
+#zsh wal colorschemes
+(cat ~/.cache/wal/sequences &)
 
 prompt_battery_level(){
 
     local symbol="\uF00d"
     local color='%F{red}'
     local color2='%F{black}'
-    local battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+    local battery_level=`acpi -b | grep -P -m 1 -o '[0-9]+(?=%)'`
     
     if [ $battery_level -le 10 ]; then
         symbol='\uf579'
@@ -64,7 +64,7 @@ POWERLEVEL9K_TIME_FORMAT="\UF43A %D{%I:%M%P  \UF133  %m.%d.%y}"
 POWERLEVEL9K_TIME_ICON=''
 POWERLEVEL9K_TIME_BACKGROUND='255'
 POWERLEVEL9K_STATUS_OK_BACKGROUND='059'
-POWERLEVEL9K_CUSTOM_ICON="echo -n '\ue780'"
+POWERLEVEL9K_CUSTOM_ICON="echo -n '\uf303'"
 POWERLEVEL9K_CUSTOM_ICON_FOREGROUND='045'
 POWERLEVEL9K_CUSTOM_ICON_BACKGROUND='059'
 POWERLEVEL9K_DIR_HOME_BACKGROUND='045'
@@ -133,7 +133,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -164,3 +163,7 @@ export VISUAL=/usr/bin/nvim
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pingg="ping -c 3 www.google.com"
+#
+#
+#
